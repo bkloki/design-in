@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Web Development Service</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0a23, #000000);
+      color: white;
+      padding: 30px;
+      cursor: none;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #00e1ff;
+      font-size: 32px;
+    }
+
+    .service-detail {
+      max-width: 800px;
+      margin: auto;
+      background: rgba(255,255,255,0.05);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00e1ff;
+      animation: fadeIn 1s ease-in-out;
+      font-weight: bold;
+    }
+
+
+    .service-detail p{
+        font-weight: lighter;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #00e1ff;
+      color: black;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .back-home:hover {
+      background: #0097a7;
+    }
+
+    .parallax-container {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1200px;
+}
+
+.parallax-element {
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: rotateParallax 10s infinite linear;
+}
+
+.circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0097a7, #00e1ff);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes rotateParallax {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+
+
+.testimonials {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.testimonial {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.testimonial:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 188, 212, 0.4);
+}
+
+.testimonial cite {
+  display: block;
+  margin-top: 15px;
+  color: #00e1ff;
+  font-weight: bold;
+}
+
+
+
+
+
+.cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid #fefbfb;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 1000;
+    box-shadow: 0 0 25px white;
+    margin: 20px;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 3000;
+    
+  }
+@keyframes example {
+ 0% {box-shadow: 0 0 20px white;}
+ 25%{box-shadow: 0 0 40px white;}
+ 50% {box-shadow: 0 0 80px white;}
+ 100%{box-shadow: 0 0 100px white;}
+
+ 
+}
+
+
+
+
+
+.contact-section {
+  background: linear-gradient(135deg, #00e1ff, #0097a7);
+  color: white;
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.contact-container h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.contact-container p {
+  font-size: 18px;
+  color: #fff;
+  margin-bottom: 40px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form label {
+  font-size: 18px;
+  color: #fff;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid #00e1ff;
+  box-shadow: 0 0 10px rgba(0, 225, 255, 0.5);
+}
+
+.contact-form button {
+  background-color: #00e1ff;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #0097a7;
+}
+
+.contact-form textarea {
+  resize: none;
+}
+
+
+
+
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #091530, #000000);
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+
+.footer p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #bbbbbb;
+}
+
+.footer-icons {
+  margin: 20px 0;
+}
+
+.footer-icons a {
+  color: #00e1ff;
+  margin: 0 15px;
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Glowing line at top of footer */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00e1ff, transparent);
+  transform: translateX(-50%);
+}
+
+
+
+
+.what-you-get {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0b1d3a, #000000);
+  text-align: center;
+  color: #fff;
+}
+
+.what-you-get h2 {
+  font-size: 48px;
+  margin-bottom: 60px;
+  color: #00bcd4;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.get-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.get-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.get-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  background: rgba(0, 188, 212, 0.1);
+}
+
+.get-item i {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #00e1ff;
+}
+
+.get-item h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.get-item p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+}
+
+
+
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+<div class="cursor" id="cursor">.</div>
+
+<header>Web Development</header>
+<div id="particles-js"></div>
+
+<div class="service-detail">
+  <h2>Custom Website Solutions</h2>
+  <p> We specialize in creating beautiful, professional websites that are designed to help your business grow.</p>
+
+  <h3>Our services cover everything you need, including:</h3>
+  <ul>
+    <li>Custom Web Design
+        <p>We create designs that reflect your brand and speak to your customers.</p>
+    </li>
+    <li>Responsive Development
+        <p>Your website will look perfect on mobiles, tablets, and computers.</p>
+    </li>
+    <li>SEO Optimization
+        <p>We build your site so it's search engine-friendly, helping you rank higher on Google.</p>
+    </li>
+    <li>Fast and Secure Hosting
+        <p>We offer reliable hosting to keep your site running smoothly.</p>
+    </li>
+    <li>Ongoing Support
+        <p>After your website is live, we’re here to help with updates, improvements, and any technical needs.</p>
+    </li>
+
+
+    <h1>In short, we don't just design websites — we build online experiences that help you attract, impress, and convert your visitors.</h1>
+
+        <h2></h2>Would you like me to show you some examples of our past work?
+  </ul>
+
+<!-- WHAT YOU WILL GET SECTION -->
+<section class="what-you-get">
+  <h2>What You Will Get</h2>
+  <div class="get-items">
+    <div class="get-item">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Custom Design</h3>
+      <p>Unique, responsive web design tailored to your brand identity.</p>
+    </div>
+    <div class="get-item">
+      <i class="fas fa-rocket"></i>
+      <h3>Fast Performance</h3>
+      <p>Optimized websites with blazing fast load times.</p>
+    </div>
+    <div class="get-item">
+      <i class="fas fa-mobile-alt"></i>
+      <h3>Mobile Friendly</h3>
+      <p>Fully responsive layouts that look great on all devices.</p>
+    </div>
+    <div class="get-item">
+      <i class="fas fa-shield-alt"></i>
+      <h3>Security Focused</h3>
+      <p>Built with best practices to keep your site safe and secure.</p>
+    </div>
+    <div class="get-item">
+      <i class="fas fa-search"></i>
+      <h3>SEO Ready</h3>
+      <p>Improve visibility with built-in search engine optimization.</p>
+    </div>
+    <div class="get-item">
+      <i class="fas fa-tools"></i>
+      <h3>Easy Maintenance</h3>
+      <p>Clean code and documentation for future updates.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <a href="index.html" class="back-home">← Back to Home</a>
+</div>
+<div class="parallax-container">
+    <div class="parallax-element">
+      <div class="circle"></div>
+    </div>
+  </div>
+  <section class="testimonials">
+    <h3>What Our Clients Say</h3>
+    <div class="testimonial">
+      <p>"This web development service helped me scale my business!"</p>
+      <cite>- Client 1</cite>
+    </div>
+    <div class="testimonial">
+      <p>"The best design team, hands down. They understood my vision perfectly."</p>
+      <cite>- Client 2</cite>
+    </div>
+    <div class="testimonial">
+      <p>"The SEO optimization brought our website to the first page of Google!"</p>
+      <cite>- Client 3</cite>
+    </div>
+  </section>
+  
+
+
+  <section id="contact" class="contact-section">
+    <div class="contact-container">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or would like to get started, feel free to reach out!</p>
+      
+      <form id="contact-form" class="contact-form">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+  
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+  
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Write your message here..." rows="6" required></textarea>
+  
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!--A FOOTer-->
+<footer class="footer">
+    <div class="footer-content">
+      <h2>Let's Connect</h2>
+      <p>Follow me on social media or get in touch via email!</p>
+      <div class="footer-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p class="copyright">© 2025 YourName. All rights reserved.</p>
+    </div>
+  </footer>
+  
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script>
+    particlesJS('particles-js', {
+  particles: {
+    number: { value: 500, density: { enable: true, value_area: 800 } },
+    color: { value: '#00e1ff' },
+    shape: {
+      type: 'circle',
+      stroke: { width: 0, color: '#ffffff' }
+    },
+    opacity: { value: 0.5, random: true, anim: { enable: true, speed: 2, opacity_min: 0 } },
+    size: { value: 15, random: true, anim: { enable: true, speed: 2, size_min: 0.3 } },
+    line_linked: { enable: true, distance: 100, color: '#00e1ff', opacity: 0.4, width: 1 }
+  },
+  interactivity: {
+    events: { onhover: { enable: true, mode: 'repulse' } },
+    modes: { repulse: { distance: 100, duration: 0.4 } }
+  }
+});
+
+
+
+const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.top = `${e.clientY}px`;
+  cursor.style.left = `${e.clientX}px`;
+});
+document.addEventListener('mousedown', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+});
+document.addEventListener('mouseup', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+});
+
+</script>
+<script>
+    // Remove any old mouseX, mouseY variables before this
+  
+  const cursors = document.getElementById('cursor');
+  let mouseXs = 0, mouseYs = 0;
+  let cursorX = 0, cursorY = 0;
+  
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+  
+  // Smooth movement animation
+  function animateCursor() {
+    cursorX += (mouseX - cursorX) * 0.1;
+    cursorY += (mouseY - cursorY) * 0.1;
+  
+    cursor.style.left = `${cursorX}px`;
+    cursor.style.top = `${cursorY}px`;
+  
+    requestAnimationFrame(animateCursor);
+  }
+  
+  animateCursor();
+  
+  </script>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+  e.preventDefault(); // Prevents the default form submission
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const message = document.getElementById("message").value;
+
+  // Basic validation
+  if (name === "" || email === "" || message === "") {
+    alert("Please fill out all fields.");
+    return;
+  }
+
+  // If form is valid, show success message or submit form data (e.g., via AJAX)
+  alert("Thank you for reaching out! We'll get back to you soon.");
+  // Here you could also make an AJAX call to send the data to a server
+});
+
+  </script>
+</body>
+</html>

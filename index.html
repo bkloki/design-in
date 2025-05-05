@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEB DESIGN</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+     * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+   body {
+    margin: 0;
+    min-height: 100vh; /* instead of height */
+    background: linear-gradient(135deg, #153269, #000000);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    cursor: none;
+     }
+
+
+    .cube, .cubes {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 2px;
+      transform-style: preserve-3d;
+      animation: rotateCube 15s infinite linear;
+      
+    }
+
+    .face {
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgb(255, 255, 255);
+      box-shadow: 0 0 20px rgba(251, 255, 255, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 50px;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      
+      
+    }
+
+    .front  { transform: translateZ(75px); }
+    .back   { transform: rotateY(180deg) translateZ(75px); }
+    .right  { transform: rotateY(90deg) translateZ(75px); }
+    /* .left   { transform: rotateY(-90deg) translateZ(75px); } */
+    .top    { transform: rotateX(90deg) translateZ(75px); }
+    /* .bottom { transform: rotateX(-90deg) translateZ(75px); } */
+
+    @keyframes rotateCube {
+      from {
+        transform: rotateX(0deg) rotateY(0deg);
+      }
+      to {
+        transform: rotateX(360deg) rotateY(360deg);
+      }
+    }
+    
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.099);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+      animation: slideDown 3s ease forwards;
+    }
+
+    nav h1 {
+      color: #fff;
+      font-size: 24px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #d9e8ea;
+      text-shadow: 0 0 15px white;
+    }
+
+    /* Navbar animation */
+    @keyframes slideDown {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Custom cursor */
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0);
+    border: 2px solid #fefbfb;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+    z-index: 1000;
+    box-shadow: 0 0 25px white;
+    margin: 20px;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-iteration-count: 3000;
+    
+  }
+@keyframes example {
+ 0% {box-shadow: 0 0 20px white;}
+ 25%{box-shadow: 0 0 40px white;}
+ 50% {box-shadow: 0 0 80px white;}
+ 100%{box-shadow: 0 0 100px white;}
+
+ 
+}
+
+  .services {
+    width: 100%;
+    padding: 100px 20px;
+    background: rgba(0, 0, 0, 0.7); /* semi-transparent over cube bg */
+    backdrop-filter: blur(10px);
+    color: #fff;
+    text-align: center;
+  }
+
+  .services h2 {
+    font-size: 48px;
+    margin-bottom: 50px;
+    color: #f9fafb;
+    text-shadow: 0 0 20px white;
+  }
+
+  .service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #00bcd4;
+    padding: 30px;
+    width: 280px;
+    border-radius: 20px;
+    transition: transform 0.3s, background 0.3s;
+    backdrop-filter: blur(5px);
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+    background: rgba(0, 188, 212, 0.2);
+  }
+
+  .card h3 {
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+
+  .card p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .hero {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    position: relative;
+  }
+  /* about section */
+  .about {
+  width: 100%;
+  min-height: 100vh;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #0a1a36, #000000);
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  perspective: 1000px;
+}
+
+.about-card:hover {
+  transform: rotateY(10deg) rotateX(10deg) scale(1.05);
+  box-shadow: 0 20px 50px rgba(0, 188, 212, 0.5);
+}
+
+.about-card h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+
+.about-card p {
+  font-size: 20px;
+  line-height: 1.8;
+}
+.about-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+.testimonials {
+  width: 100%;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #091530, #000000);
+  color: #fff;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 48px;
+  margin-bottom: 50px;
+  color: #00bcd4;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  min-height: 200px;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.2);
+  backdrop-filter: blur(8px);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.testimonial-card h3 {
+  margin-top: 20px;
+  font-size: 20px;
+  color: #00e1ff;
+}
+
+/* Scroll Reveal Animation */
+.testimonial-card.reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+.footer {
+  width: 100%;
+  background: linear-gradient(135deg, #091530, #000000);
+  padding: 60px 20px;
+  text-align: center;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #00bcd4;
+}
+
+.footer p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #bbbbbb;
+}
+
+.footer-icons {
+  margin: 20px 0;
+}
+
+.footer-icons a {
+  color: #00e1ff;
+  margin: 0 15px;
+  font-size: 24px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-icons a:hover {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+
+/* Glowing line at top of footer */
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #00e1ff, transparent);
+  transform: translateX(-50%);
+}
+
+
+/* team */
+.team {
+  width: 100%;
+  padding: 100px 20px;
+  background: #0a1a36;
+  color: #fff;
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 48px;
+  margin-bottom: 50px;
+  color: #00bcd4;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.team-member {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 188, 212, 0.3);
+}
+
+.team-member img {
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+
+/* work */
+.workflow {
+  position: relative;
+  padding: 120px 20px;
+  background: #0a1a36;
+  color: white;
+  overflow: hidden;
+}
+
+.workflow h2 {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 60px;
+  color: #00bcd4;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+.workflow-content {
+  position: relative;
+  z-index: 2;
+}
+
+.workflow-steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.step {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid #00bcd4;
+  border-radius: 20px;
+  padding: 30px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 188, 212, 0.25);
+  backdrop-filter: blur(10px);
+  transform: perspective(800px) rotateY(5deg);
+  transition: transform 0.4s ease, background 0.3s;
+}
+
+.step:hover {
+  transform: perspective(800px) rotateY(0deg) translateY(-10px);
+  background: rgba(0, 188, 212, 0.1);
+}
+
+/* Animated 3D Background */
+.workflow-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #00bcd4 0%, #0a1a36 80%);
+  opacity: 0.05;
+  animation: rotateBg 30s linear infinite;
+  transform: scale(2);
+  z-index: 0;
+}
+
+@keyframes rotateBg {
+  0% {
+    transform: rotate(0deg) scale(2);
+  }
+  100% {
+    transform: rotate(360deg) scale(2);
+  }
+}
+
+/* tech */
+.tech-stack {
+  position: relative;
+  padding: 120px 20px;
+  background: #0f1a2c;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.tech-stack h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #76e2f4;
+  text-shadow: 0 0 15px rgba(118, 226, 244, 0.5);
+}
+
+.tech-subtitle {
+  font-size: 18px;
+  margin-bottom: 60px;
+  color: #ccc;
+}
+
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.tech-item {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #76e2f4;
+  padding: 20px;
+  border-radius: 15px;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s, box-shadow 0.4s;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 10px 30px rgba(118, 226, 244, 0.15);
+}
+
+.tech-item img {
+  width: 40px;
+  margin-bottom: 10px;
+}
+
+.tech-item span {
+  color: #fff;
+  font-size: 14px;
+}
+
+.tech-item:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(118, 226, 244, 0.4);
+}
+
+/* Animated Background */
+.tech-bg {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.02),
+    rgba(255, 255, 255, 0.02) 1px,
+    transparent 1px,
+    transparent 20px
+  );
+  animation: moveGrid 60s linear infinite;
+  z-index: 0;
+}
+
+.tech-content {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes moveGrid {
+  0% {
+    transform: rotate(0deg) translate(0, 0);
+  }
+  100% {
+    transform: rotate(360deg) translate(0, 0);
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor">.</div>
+
+  <!-- Navbar -->
+  <nav>
+    <h1>LATER CHANGE</h1>
+    <ul>
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="#about" class="btn">About</a></li>
+      <li><a href="./listingpage.html">services</a></li>
+      <li><a href="./contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+  <div class="cube">
+    <div class="face front">B</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+  <div class="cubes">
+    <div class="face front">I</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+  <div class="cubes">
+    <div class="face front">K</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+  <div class="cubes">
+    <div class="face front">A</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+  <div class="cubes">
+    <div class="face front">S</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+  <div class="cubes">
+    <div class="face front">H</div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top"></div>
+    <div class="face bottom"></div>
+  </div>
+
+
+  
+</section>
+<!-- section two-->
+<section class="services">
+  <h2>Our Services</h2>
+  <div class="service-cards">
+    <div class="card">
+      <h3>Web Design</h3>
+      <p>Beautiful and responsive websites that impress users.</p>
+    </div>
+    <div class="card">
+      <h3>Development</h3>
+      <p>Full-stack web development tailored for your business.</p>
+    </div>
+    <div class="card">
+      <h3>SEO Optimization</h3>
+      <p>Rank higher on search engines and reach more customers.</p>
+    </div>
+    <div class="card">
+      <h3>SEO Optimization</h3>
+      <p>Rank higher on search engines and reach more customers.</p>
+    </div>
+    <div class="card">
+      <h3>SEO Optimization</h3>
+      <p>Rank higher on search engines and reach more customers.</p>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+
+
+<!--ABOUT SECTION-->
+<section class="about" id="about">
+  <div class="about-card">
+    <h2>About Us</h2>
+    <p>We are a team of passionate designers and developers creating modern digital experiences. Our mission is to turn your ideas into beautiful and functional realities.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa id quod iste? Dolore architecto labore consequatur dolor nobis, neque facilis iste ad dolores aut corporis harum, sed aspernatur dignissimos itaque!
+    </p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam illo dolorem commodi, qui fugiat nisi, et corporis assumenda, hic omnis! Sit id quas vel beatae, repellat possimus alias porro!</p>
+  </div>
+</section>
+
+<!-- TEAM SECTION -->
+<section class="team">
+  <h2>Meet the Team</h2>
+  <div class="team-grid">
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="Team Member">
+      <h3>Jane Doe</h3>
+      <p>Frontend Developer</p>
+    </div>
+    <div class="team-member">
+      <img src="https://via.placeholder.com/150" alt="Team Member">
+      <h3>John Smith</h3>
+      <p>Backend Developer</p>
+    </div>
+  </div>
+</section>
+
+
+<!--TESTIMONIALS-->>
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <p>"Amazing service and super fast delivery! Highly recommend!"</p>
+      <h3>- John Doe</h3>
+    </div>
+    <div class="testimonial-card">
+      <p>"They turned my ideas into a beautiful website. Thank you!"</p>
+      <h3>- Sarah Smith</h3>
+    </div>
+    <div class="testimonial-card">
+      <p>"Professional, creative, and very easy to work with."</p>
+      <h3>- Mike Johnson</h3>
+    </div>
+    <div class="testimonial-card">
+      <p>"Professional, creative, and very easy to work with."</p>
+      <h3>- Mike Johnson</h3>
+    </div>
+    <div class="testimonial-card">
+      <p>"Professional, creative, and very easy to work with."</p>
+      <h3>- Mike Johnson</h3>
+    </div>
+    
+  </div>
+</section>
+
+<!-- workflow -->
+<section class="workflow">
+  <div class="workflow-bg"></div>
+  <div class="workflow-content">
+    <h2>How We Work</h2>
+    <div class="workflow-steps">
+      <div class="step">
+        <h3>1. Consultation</h3>
+        <p>We begin by understanding your goals, challenges, and vision.</p>
+      </div>
+      <div class="step">
+        <h3>2. Planning</h3>
+        <p>We develop a strategy, timeline, and design plan tailored to your needs.</p>
+      </div>
+      <div class="step">
+        <h3>3. Execution</h3>
+        <p>Our team brings your project to life with precision and agility.</p>
+      </div>
+      <div class="step">
+        <h3>4. Delivery</h3>
+        <p>We ensure timely delivery and post-launch support.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- tech -->
+<section class="tech-stack">
+  <div class="tech-bg"></div>
+  <div class="tech-content">
+    <h2>What Technology We Use</h2>
+    <p class="tech-subtitle">We work with modern, reliable, and scalable technologies to build exceptional digital experiences.</p>
+    <div class="tech-icons">
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_wwwf2TCnMVOb4C2XpzZSQB1X5BWp_nv_zQ&s" alt="HTML5"><span>HTML5</span></div>
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRgUcwSv8btelcDQ_5M0yKpAYaOegAvNZpAA&s" alt="CSS3"><span>CSS3</span></div>
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8YXWsSx5OHEoyz2UunwBOFIBfNLBRxZtX7A&s" alt="JavaScript"><span>JavaScript</span></div>
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYI61e29606f5XbI3a0FAuedOof4ktGGUmnw&s" alt="React"><span>React</span></div>
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVClReIDZtviQuIWpEijDl4BQjzDIsEi37Tg&s" alt="Node.js"><span>Node.js</span></div>
+      <div class="tech-item"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHwTYl5xo_PMhjbjKDsXXsB8seN3tdinkoMw&s" alt="Figma"><span>Figma</span></div>
+      <!-- Add more icons as needed -->
+    </div>
+  </div>
+</section>
+  
+
+
+<!--A FOOTer-->
+<footer class="footer">
+  <div class="footer-content">
+    <h2>Let's Connect</h2>
+    <p>Follow me on social media or get in touch via email!</p>
+    <div class="footer-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+    </div>
+    <p class="copyright">© 2025 YourName. All rights reserved.</p>
+  </div>
+</footer>
+
+
+<script>
+  const cubes = document.querySelectorAll('.cube, .cubes');
+  let mouseX = 0;
+  let mouseY = 0;
+  let rotationX = 0;
+  let rotationY = 0;
+  let isMoving = false;
+  let idleTimeout;
+
+  document.addEventListener('mousemove', (e) => {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+    mouseX = (e.clientX - centerX) / centerX;
+    mouseY = (e.clientY - centerY) / centerY;
+
+    rotationX = mouseY * 45; // Adjust sensitivity
+    rotationY = mouseX * 45;
+
+    cubes.forEach(cube => {
+      cube.style.animation = 'none'; // Stop the CSS animation
+      cube.style.transform = `rotateX(${rotationX}deg) rotateY(${rotationY}deg)`;
+    });
+
+    isMoving = true;
+    clearTimeout(idleTimeout);
+    idleTimeout = setTimeout(() => {
+      isMoving = false;
+      cubes.forEach(cube => {
+        cube.style.animation = 'rotateCube 20s infinite linear'; // Restart animation
+      });
+    }, 300); // 1 second after no mouse movement
+  });
+  const cursor = document.getElementById('cursor');
+
+document.addEventListener('mousemove', (e) => {
+  cursor.style.top = `${e.clientY}px`;
+  cursor.style.left = `${e.clientX}px`;
+});
+document.addEventListener('mousedown', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+});
+document.addEventListener('mouseup', () => {
+  cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+});
+
+
+</script>
+<script>
+  // Remove any old mouseX, mouseY variables before this
+
+const cursors = document.getElementById('cursor');
+let mouseXs = 0, mouseYs = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+// Smooth movement animation
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.1;
+  cursorY += (mouseY - cursorY) * 0.1;
+
+  cursor.style.left = `${cursorX}px`;
+  cursor.style.top = `${cursorY}px`;
+
+  requestAnimationFrame(animateCursor);
+}
+
+animateCursor();
+
+</script>
+<!--ABOUT SECTION SCRIPT-->
+<script>
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.about-card');
+
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 150;
+
+      if (elementTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('reveal');
+      } else {
+        reveals[i].classList.remove('reveal');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+</script>
+
+
+<script>
+  function revealTestimonials() {
+    const testimonials = document.querySelectorAll('.testimonial-card');
+
+    for (let i = 0; i < testimonials.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = testimonials[i].getBoundingClientRect().top;
+      const revealPoint = 150;
+
+      if (elementTop < windowHeight - revealPoint) {
+        testimonials[i].classList.add('reveal');
+      } else {
+        testimonials[i].classList.remove('reveal');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealTestimonials);
+</script>
+
+
+
+</body>
+</html>
